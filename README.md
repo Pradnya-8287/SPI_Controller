@@ -68,4 +68,36 @@ vvp SPI_tb.vvp
 gtkwave SPI.vcd
 ```
 
+## Waveform Results
+The waveform demonstrates:
+- Chip select going low during transaction
+- Serial clock toggling
+- Data shifting on MOSI
+- Data received on MISO
+- FSM state transitions
+- Successful readback of data
 
+<p align="center">
+  <img src="./png/Control_Signals.png" width="700"> 
+</p>
+
+<p align="center">
+  <img src="./png/SPI_Bus_Signals.png" width="700"> 
+</p>
+
+<p align="center">
+  <img src="./png/Master_Internal_Signals.png" width="700"> 
+</p>
+
+<p align="center">
+  <img src="./png/Slave_Internal_Signals.png" width="700"> 
+</p>
+
+## Future Improvements
+- Configurable SPI modes (CPOL/CPHA)
+- Clock divider for realistic SPI timing
+- Multiple slave support
+- Interrupt support
+- FIFO buffers
+- Coverage driven verification
+- SystemVerilog testbench
