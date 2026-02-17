@@ -27,3 +27,45 @@ Acts as the register interface and connects master and slave.
 | 010 | Address |
 | 011 | Data In |
 | 100 | Data Out |
+
+### 2. SPI Master
+Responsible for:
+- Generating chip select (CS)
+- Generating serial clock (SCK)
+- Sending command/address/data via MOSI
+- Receiving data via MISO
+- Controlling transfer using FSM
+
+FSM States: IDLE, ENABLE, DATA
+
+### 3. SPI Slave
+Responsible for:
+- Receiving serial data from MOSI
+- Storing command/address/data
+- Sending data back via MISO
+- Managing transaction lifecycle
+
+FSM States: IDLE, DATA, DISABLE
+
+## SPI Signals
+
+| Signal | Description |
+|--------|------------|
+| CS | Chip Select |
+| SCK | Serial Clock |
+| MOSI | Master Out Slave In |
+| MISO | Master In Slave Out |
+
+## Simulation 
+Simulation is performed using: Icarus Verilog + GTKWave
+The testbench performs multiple transactions including write and read operations.
+
+### How to RUN simulation:
+
+```bash
+iverilog -o SPI_tb.vvp SPI_tb.v SPI.v SPI_master.v SPI_slave.v
+vvp SPI_tb.vvp
+gtkwave SPI.vcd
+```
+
+
